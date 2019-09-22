@@ -124,6 +124,7 @@ document.getElementById('bus').addEventListener('click', function(){
   localStorage.removeItem('busmall');
   alert('local storage cleared!')
   console.log('local storage cleared!');
+  myChart.removeAttribute('hidden');
   window.location.reload();
 })
 
