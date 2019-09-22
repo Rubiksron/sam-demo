@@ -1,18 +1,60 @@
 * {
-  color: blue;
+  color: gold;
   font-family: 'Helvetica';
-  outline: 1px solid green;
+  /*outline: 1px dashed white;*/
+}
+
+body {
+  background-color: #242;
+}
+
+section {
+  background-color: black;
+  /* width: 100%; */
+  margin: 0px auto;
+  border-radius: 50px;
+  border: 5px solid lightgrey;
+  text-align: center;
 }
 
 img {
   border-radius: 1em;
-  height: 14em;
-  width: 14em;
-  background-color: lavender;
-  border-style: solid;
+  height: 20em;
+  width: 20em;
+  background-color: lightgrey;
+  border-style: solid 3px grey;
+  margin: 5px;
 }
 
-#myChart {
-  border: dashed 3px orange;
-  background: lightgrey;
+h1 {
+  width: 700px;
+  font-size: 2.5em;
+  font-family: 'Righteous', cursive;
+  text-align: center;
+  margin: 10px auto;
+  padding: 10px;
+  border: 10px solid #214;
+  border-radius: 20px;
+}
+
+p {
+  font-family: 'Ropa Sans', sans-serif;
+  color: #eee;
+  font-size: 1.05em;
+  line-height: 1.5em;
+  padding: 10px;
+  /*width: 700px;*/
+  margin: 10px auto;
+  text-align: center;
+}
+
+canvas {
+  margin: 10px auto;
+}
+
+#bus {
+  display: inline-block;
+  padding: 10px;
+  margin: 0px auto;
+  height: 50px;
 }
