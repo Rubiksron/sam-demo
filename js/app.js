@@ -92,13 +92,13 @@ function makeChart(){
       labels: Product.labels,
       datasets: [{
         label: 'total votes',
-        backgroundColor: 'lightgrey',
+        backgroundColor: 'orange',
         borderColor: '#214',
         data: Product.votes,
       },
       {
         label: 'total views',
-        backgroundColor: 'red',
+        backgroundColor: 'lightgrey',
         borderColor: '#214',
         data: Product.views,
       }]
@@ -108,7 +108,7 @@ function makeChart(){
       scales: {
         yAxes: [{
           ticks: {
-            max: 20,
+            max: 10,
             min: 0,
             stepSize: 1
           }
@@ -116,13 +116,15 @@ function makeChart(){
       }
     }
   });
-  Chart.defaults.global.defaultFontColor = '#eee';
+  Chart.defaults.global.defaultFontColor = 'white';
 }
 
 Product.container.addEventListener('click', handleClick);
 document.getElementById('bus').addEventListener('click', function(){
   localStorage.removeItem('busmall');
-  console.log('Your local storage done got cleared!');
+  alert('local storage cleared!')
+  console.log('local storage cleared!');
+  window.location.reload();
 })
 
 if(localStorage.busmall){
