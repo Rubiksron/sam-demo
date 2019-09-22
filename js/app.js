@@ -27,22 +27,28 @@ function makeRandom() {
 }
 
 function displayPics(){
-  // roll for three random indexes
-  while(Product.viewed.length < 6){
-    var rando = makeRandom();
-    while(!Product.viewed.includes(rando)){
-      Product.viewed.push(rando);
-    }
-  }
-  console.log(Product.viewed)
+  var randomImages = [];
 
-  // To the DOM and beyond!
-  for (var i = 0; i < 3; i++){
-    var temp = Product.viewed.shift();
-    Product.pics[i].src = Product.all[temp].path;
-    Product.pics[i].id = Product.all[temp].name;
-    Product.all[temp].views += 1;
+  randomImages[0] = makeRandom();
+  randomImages[1] = makeRandom();
+
+  while(randomImages[0] === randomImages[1]){
+    console.log('Duplicate Found');
+    randomImages[1] = makeRandom();
   }
+  randomImages[2] = makeRandom();
+  while(randomImages[2] === randomImages[1] || randomImages[2] === randomImages[0]){
+    console.log('Duplicate Found');
+    randomImages[2] = makeRandom();
+  }
+
+  for( var i = 0; i < 3; i++ ) {
+    Product.pics[i].src = Product.all[randomImages[i]].path;
+    Product.pics[i].id = Product.all[randomImages[i]].name;
+    Product.all[randomImages[i]].views += 1;
+    Product.viewed[i] = randomImages[i];
+  }
+
 }
 
 function handleClick(event) {
