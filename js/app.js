@@ -38,6 +38,7 @@ function displayPics(){
     console.log('Duplicate Found');
     randomImages[1] = makeRandomNumber();
   }
+  //creating the 3rd number in the array and ensuring that it does not match the previous 2 indexes
   randomImages[2] = makeRandomNumber();
   while(randomImages[2] === randomImages[1] || randomImages[2] === randomImages[0]){
     console.log('Duplicate Found');
