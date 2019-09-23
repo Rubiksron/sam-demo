@@ -1,7 +1,6 @@
 * {
   color: gold;
   font-family: 'Helvetica';
-  /*outline: 1px dashed white;*/
 }
 
 body {
@@ -10,9 +9,7 @@ body {
 
 section {
   background-color: black;
-  /* width: 100%; */
   margin: 0px auto;
-  /* border-radius: 50px; */
   border: 5px solid lightgrey;
   text-align: center;
 }

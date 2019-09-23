@@ -1,6 +1,7 @@
 'use strict';
 
-Product.names = ['bag', 'banana', 'bathroom', 'boots', 'breakfast', 'bubblegum', 'chair', 'cthulhu', 'dog-duck', 'dragon', 'pen', 'pet-sweep', 'scissors', 'shark', 'sweep', 'tauntaun', 'unicorn', 'usb', 'water-can', 'wine-glass'];
+Product.names = ['img/bag.jpg', 'img/banana.jpg', 'img/bathroom.jpg', 'img/boots.jpg', 'img/breakfast.jpg', 'img/bubblegum.jpg', 'img/chair.jpg', 'img/cthulhu.jpg', 'img/dog-duck.jpg', 'img/dragon.jpg', 'img/pen.jpg', 'img/pet-sweep.jpg', 'img/scissors.jpg', 'img/shark.jpg', 'img/sweep.jpg', 'img/tauntaun.jpg', 'img/unicorn.jpg', 'img/usb.jpg', 'img/water-can.jpg', 'img/wine-glass.jpg'];
+// Product.names = ['bag', 'banana', 'bathroom', 'boots', 'breakfast', 'bubblegum', 'chair', 'cthulhu', 'dog-duck', 'dragon', 'pen', 'pet-sweep', 'scissors', 'shark', 'sweep', 'tauntaun', 'unicorn', 'usb', 'water-can', 'wine-glass'];
 
 Product.all = [];
 Product.container = document.getElementById('image_container');
@@ -16,39 +17,39 @@ Product.votes = [];
 
 function Product(name) {
   this.name = name;
-  this.path = 'img/' + name + '.jpg';
+  this.path = name;
+  // this.path = 'img/' + name + '.jpg';
   this.votes = 0;
   this.views = 0;
   Product.all.push(this);
 }
 
-function makeRandom() {
+function makeRandomNumber() {
   return Math.floor(Math.random() * Product.names.length);
 }
 
 function displayPics(){
   var randomImages = [];
-
-  randomImages[0] = makeRandom();
-  randomImages[1] = makeRandom();
-
+  //assigns random values to randomImages index 1 and 2
+  randomImages[0] = makeRandomNumber();
+  randomImages[1] = makeRandomNumber();
+  //here we are checking to see if you randomImages at index 1 is equal to index 2, if so reassign index 1 by calling makeRandomNumber()
   while(randomImages[0] === randomImages[1]){
     console.log('Duplicate Found');
-    randomImages[1] = makeRandom();
+    randomImages[1] = makeRandomNumber();
   }
-  randomImages[2] = makeRandom();
+  randomImages[2] = makeRandomNumber();
   while(randomImages[2] === randomImages[1] || randomImages[2] === randomImages[0]){
     console.log('Duplicate Found');
-    randomImages[2] = makeRandom();
+    randomImages[2] = makeRandomNumber();
   }
-
-  for( var i = 0; i < 3; i++ ) {
+  //using the randomImages array numbers to assign the source a path and a name to the Products in the Products.pics array
+  for( var i = 0; i < randomImages.length; i++ ) {
     Product.pics[i].src = Product.all[randomImages[i]].path;
     Product.pics[i].id = Product.all[randomImages[i]].name;
     Product.all[randomImages[i]].views += 1;
     Product.viewed[i] = randomImages[i];
   }
-
 }
 
 function handleClick(event) {
@@ -114,7 +115,7 @@ function makeChart(){
       scales: {
         yAxes: [{
           ticks: {
-            max: 10,
+            max: 20,
             min: 0,
             stepSize: 1
           }
